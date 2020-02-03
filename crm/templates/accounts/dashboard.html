@@ -1,0 +1,56 @@
+{% extends 'accounts/main.html' %}
+
+{% block content %}
+
+	{% include 'accounts/status.html' %}
+
+	<div class="row">
+		<div class="col-md-5">
+			<h5>Customers:</h5>
+			<a class="btn btn-primary btn-sm btn-block" style="width:125px; margin: 5px;" href="#">Create Customer</a>
+			<div class="card card-body" style="background-color: #ebeff5"> 
+				<table class="table table-sm">
+					<tr style="background-color: #4CAF50;color: white;">
+						<th></th>
+						<th>Customer</th>
+						<th>Orders</th>
+					</tr>
+					<tr>
+						<td>
+							<a class="btn btn-sm btn-info" href="#">View</a>
+						</td>
+						<td>Satyendra</td>
+						<td>0</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+		<div class="col-md-7">
+			<h5>Last 5 Orders:</h5>
+			<a class="btn btn-sm btn-primary btn-block" style="width:100px; margin: 5px;" href="#">Create Order</a>
+			<div class="card card-body" style="background-color: #ebeff5">
+				<table class="table table-sm">
+					<tr style="background-color: #4CAF50;color: white;">
+						<th>Product</th>
+						<th>Date Ordered</th>
+						<th>Status</th>
+						<th>Update</th>
+						<th>Delete</th>
+					</tr>
+					<tr>
+						<td>Test</td>
+						<td><20-03-2020</td>
+						<td>Pending</td>
+						<td>
+							<a class="btn btn-sm btn-info" href="#">Update</a>
+						</td>
+						<td>
+							<a class="btn btn-sm btn-danger" href="#">Delete</a>
+						</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+	</div>
+
+{% endblock %}

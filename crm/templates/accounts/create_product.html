@@ -1,0 +1,24 @@
+{% extends 'accounts/main.html' %}
+
+{% block content %}
+<br>
+<div class="row">
+	<div class="container">
+		<div class="col-md-5">
+			<h5>Create/Update Product</h5>
+			<form action="" method="POST">
+				<div class="card card-body"	style="background-color: #4cb4c7">
+					{% csrf_token %}
+					{{forms}}
+				</div>
+				<div align="center" style="margin: 3px;">	
+					<input class="btn btn-primary" style=width:100px; type="submit" name="Create Product">
+					<a class="btn btn-warning" href="{% url 'product_details' %}">Cancel</a>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+
+
+{% endblock %}

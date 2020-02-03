@@ -1,0 +1,39 @@
+{% extends 'accounts/main.html' %}
+
+{% block content %}
+
+<br>
+<div class="row">
+	<div class="col-md">
+		<div class="card card-body">
+			<h5>Product:</h5>
+			<a href="{% url 'product_create' %}" class="btn btn-primary" style="width:140px;">Create Product</a>
+		</div>
+		<div class="card card-body" style="background-color: #ebeff5">
+			<table class="table">
+				<tr style="background-color: #4CAF50;color: white;">
+					<th>Product</th>
+					<th>Category</th>
+					<th>Price</th>
+					<th>Update</th>
+					<th>Delete</th>
+				</tr>
+				{% for product in products %}
+				<tr>
+					<td>{{product.name}}</td>
+					<td>{{product.category}}</td>
+					<td>{{product.price}}</td>
+					<td>
+						<a class="btn btn-sm btn-info" href="{% url 'update_product' product.id %}">Update</a>
+					</td>
+					<td>
+						<a class="btn btn-sm btn-danger" href="{% url 'delete_product' product.id %}">Delete</a>
+					</td>
+				</tr>
+				{% endfor %}
+			</table>
+		</div>
+	</div>
+</div>
+
+{% endblock %}

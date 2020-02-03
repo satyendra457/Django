@@ -1,0 +1,20 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title>CRM</title>
+	{% include 'accounts/style.html' %}
+</head>
+<body>
+	{% include 'accounts/navbar.html' %}
+	<div class="container-fluid">
+		{% block content %}
+
+		{% endblock %}
+		<br>
+		{% include 'accounts/certificate.html' %}
+	</div>
+</body>
+{% include 'accounts/footer.html' %}
+{% include 'accounts/script.html' %}
+</html>
