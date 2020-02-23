@@ -12,4 +12,8 @@ urlpatterns = [
     path('create_tag/', views.CreateTags, name='create_tag'),
     path('update_tag/<str:pk>/', views.UpdateTags, name='update_tag'),
     path('delete_tag/<str:pk>/', views.DeleteTags, name='delete_tag'),
+    path('customer_details/<str:pk>/', views.CustomerDetails, name='customer_details'),
+    path('create_customer/', views.CreateCustomer, name='Create_customer'),
+    path('update_customer/<str:pk>/', views.UpdateCustomer, name='update_customer'),
+    path('delete_customer/<str:pk>/', views.DeleteCustomer, name='delete_customer'),
 ]

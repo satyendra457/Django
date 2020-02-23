@@ -4,7 +4,9 @@ from .forms import *
 # Create your views here.
 
 def home(request):
-    return render(request, 'accounts/dashboard.html')
+    customers = Customer.objects.all()
+    context = {'customers': customers}
+    return render(request, 'accounts/dashboard.html', context)
 
 def TagsDetails(request):
     tags = Tag.objects.all()
@@ -22,12 +24,25 @@ def CreateTags(request):
     return render(request, 'accounts/create_tag.html', context)
 
 def UpdateTags(request, pk):
-    context = {}
+    tag = Tag.objects.get(id=pk)
+    form = TagForm(instance=tag)
+    if request.method == 'POST':
+        form = TagForm(request.POST, instance=tag)
+        if form.is_valid():
+            form.save()
+            return redirect('tag_details')
+        else:
+            form = TagForm(instance=tag)
+    context = {'tag': tag, 'form': form}
     return render(request, 'accounts/create_tag.html', context)
 
 def DeleteTags(request, pk):
-    context = {}
-    return render(request, 'accounts/create_tag.html', context)
+    tag = Tag.objects.get(id=pk)
+    if request.method == 'POST':
+        tag.delete()
+        return redirect('tag_details')
+    context = {'tag': tag, 'name': "Tag"}
+    return render(request, 'accounts/tag_delete.html', context)
 
 def ProductDetails(request):
     products = Product.objects.all()
@@ -66,3 +81,22 @@ def DeleteProduct(request, pk):
         return redirect('product_details')
     context = {'product': product, 'name': "Product"}
     return render(request, 'accounts/delete.html', context)
+
+def CustomerDetails(request, pk):
+    customer = Customer.objects.get(id=pk)
+    print("ccccccccccccc", customer)
+    context = {'customer': customer}
+    return render(request, 'accounts/customer_details.html', context)
+
+def CreateCustomer(request):
+    context = {}
+    return render(request, 'accounts/customer_details.html', context=context)
+
+def UpdateCustomer(request):
+    context = {}
+    return render(request, 'accounts/customer_details.html', context=context)
+
+def DeleteCustomer(request):
+    context = {}
+    return render(request, 'accounts/customer_details.html', context=context)
+

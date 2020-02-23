@@ -1,6 +1,11 @@
 from django.forms import ModelForm
 from .models import *
 
+class CustomerForm(ModelForm):
+    class Meta:
+        models = Customer
+        fields = '__all__'
+
 class ProductForm(ModelForm):
     class Meta:
         model = Product
